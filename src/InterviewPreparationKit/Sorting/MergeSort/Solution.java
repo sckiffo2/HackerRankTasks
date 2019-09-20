@@ -1,13 +1,16 @@
 package InterviewPreparationKit.Sorting.MergeSort;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Solution {
-	public static void mergeSort(int[] array) {
+	private static void mergeSort(int[] array) {
 		mergeSort(array, 0, array.length - 1);
 	}
 
-	public static void mergeSort(int[] array, int start, int end) {
+	private static void mergeSort(int[] array, int start, int end) {
 		if (end > start) {
 			int middle = (start + end) / 2;
 			mergeSort(array, start, middle);
@@ -16,7 +19,7 @@ public class Solution {
 		}
 	}
 
-	public static void mergeHalves(int[] array, int start, int middle, int end) {
+	private static void mergeHalves(int[] array, int start, int middle, int end) {
 		int[] lArray = Arrays.copyOfRange(array, start , middle + 1);
 		int[] rArray = Arrays.copyOfRange(array, middle + 1 , end + 1);
 
@@ -50,21 +53,31 @@ public class Solution {
 	}
 
 	public static void main(String[] args) {
-		int[] array = {6, 1, 5, 3, 4, 2, 8, 7};
-		System.out.println(Arrays.toString(array)); //visualisation
-		mergeSort(array);
-		System.out.println(Arrays.toString(array)); //visualisation
+//		int[] array = {6, 1, 5, 3, 4, 2, 8, 7};
+//		System.out.println(Arrays.toString(array)); //visualisation
+//		mergeSort(array);
+//		System.out.println(Arrays.toString(array)); //visualisation
+
+		speedTest();
 	}
 
-	private static void test(int[] array) {
-		int start = 0;
-		int end = array.length - 1;
-		int middle = (start + end) / 2;
+	private static void speedTest() {
+		int numbersLimit = 10001;
 
-		int[] lArray = Arrays.copyOfRange(array, start , middle + 1);
-		int[] rArray = Arrays.copyOfRange(array, middle + 1 , end + 1);
-		System.out.println(Arrays.toString(array));
-		System.out.println(Arrays.toString(lArray));
-		System.out.println(Arrays.toString(rArray));
+		Random random = new Random();
+		Instant time1 = Instant.now();
+		int[] array = new int[100_000_000];
+		for (int i = 0; i < array.length; i++) {
+			array[i] = random.nextInt(numbersLimit);
+		}
+
+		Instant time2 = Instant.now();
+		mergeSort(array);
+		Instant time3 = Instant.now();
+
+		//System.out.println(Arrays.toString(array));
+		System.out.format("Fill time: %d%n", (Duration.between(time1, time2).toMillis()));
+		System.out.format("Sort time: %d%n", (Duration.between(time2, time3).toMillis()));
+		System.out.format("Total time: %d%n", (Duration.between(time1, time3).toMillis()));
 	}
 }

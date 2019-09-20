@@ -8,11 +8,11 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-@SuppressWarnings("ALL")
+
 public class Solution {
 
 	// Complete the countSwaps function below.
-	static void countSwaps(int[] a) {
+	private static void countSwaps(int[] a) {
 		int swapCount = 0;
 		for (int i = a.length - 1; i > 0; i--) {
 			for (int j = 0; j < i; j++) {
