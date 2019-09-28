@@ -1,27 +1,6 @@
 package InterviewPreparationKit.Sorting.InsertionSort;
 
-<<<<<<< HEAD
-import org.junit.Assert;
-import org.junit.Test;
 
-public class Solution {
-	public static void insertionSortImperative() {
-
-	}
-
-	public static void insertionSortRecursive() {
-
-	}
-
-	public static void main(String[] args) {
-
-	}
-
-	@Test
-	public void speedTest() {
-
-	}
-=======
 import org.junit.Test;
 
 import java.time.Duration;
@@ -68,6 +47,4 @@ public class Solution {
         System.out.format("Sort time: %d%n", (Duration.between(time2, time3).toMillis()));
         System.out.format("Total time: %d%n", (Duration.between(time1, time3).toMillis()));
     }
-    
->>>>>>> f0f04d2a448a5abcfa6bd4841b61d41aff2b9846
 }

@@ -1,6 +1,4 @@
-package TestCases;
-
-import org.apache.commons.lang3.tuple.Triple;
+package TestTasks.ParseBigCSV;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,7 +9,7 @@ public class Solution {
 
 
 	public static void main(String[] args) throws IOException {
-		String fileName = "./src/TestCases/lng.csv";
+		String fileName = "./src/TestTasks/lng.csv";
 
 		List<String> inputStrings = Files.readAllLines(Paths.get(fileName));
 		Set<String> uniqueStrings = new HashSet<>();
